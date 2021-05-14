@@ -1,3 +1,6 @@
 [submodule "semanajsexpert-clubhouse-template"]
 	path = semanajsexpert-clubhouse-template
 	url = https://github.com/ErickWendel/semanajsexpert-clubhouse-template.git
+[submodule "initial-template"]
+	path = initial-template
+	url = https://github.com/ErickWendel/semanajsexpert-clubhouse-template.git
