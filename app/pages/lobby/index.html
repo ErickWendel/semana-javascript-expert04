@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClubHouse - Semana JSExpert 4.0</title>
+  <link rel="shortcut icon" type="image/jpeg" href="./../../assets/favicon.jpeg" />
+  <link rel="stylesheet" href="./../../css/styles.css" />
+
+</head>
+
+<body>
+  <!-- Menu -->
+  <nav>
+    <img src="./../../assets/icons/search.svg" class="menu-icons__icon" alt="Search icon" />
+    <div class="menu-icons">
+      <img src="./../../assets/icons/envelope.svg" class="menu-icons__icon" alt="Envelop icon" />
+      <img src="./../../assets/icons/calendar.svg" class="menu-icons__icon" alt="Calendar icon" />
+      <img src="./../../assets/icons/bell.svg" class="menu-icons__icon" alt="Bell icon" />
+      <div class="avatar">
+        <img id="imgUser" src="./../../assets/avatars/ivete-souza.png">
+      </div>
+    </div>
+  </nav>
+ 
+  <!-- Rooms available -->
+  <div class="cards" id="roomGrid">
+    <a href="../room/index.html">
+      <div class="cards__card">
+        <span class="cards__card__topicRoom">
+          Semana JS Expert 4.0
+          <i class="fa fa-home"></i>
+        </span>
+        <p class="cards__card__title">
+        <p class="cards__card__title">
+          Bate-papo só para hackerzões
+        </p>
+        <div class="cards__card__info">
+          <div class="avatar">
+            <img src="./../../assets/avatars/erick.jpeg" alt="Erick Wendel">
+          </div>
+          <div class="cards__card__info__speakers">
+            <ul>
+              <li>Erick Wendel <span role="img" class="emoji">💬</span></li>
+              <li>Mariazinha <span role="img" class="emoji">💬</span></li>
+              <li>Zé da Silva <span role="img" class="emoji">💬</span></li>
+              <span class="cards__card__info__speakers__listeners">
+                200 <i class="fa fa-user"></i> / 3
+                <i class="fa fa-comment"></i>
+              </span>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="#">
+      <div class="cards__card">
+        <span class="cards__card__topicRoom">
+          Semana JS Expert 4.0
+          <i class="fa fa-home"></i>
+        </span>
+        <p class="cards__card__title">
+          Como transformar gambiarras em negócios
+        </p>
+        <div class="cards__card__info">
+          <div class="avatar">
+            <img src="./../../assets/avatars/ze-silva.png" alt="Zé da Silva">
+          </div>
+          <div class="cards__card__info__speakers">
+            <ul>
+              <li>Zé da Silva <span role="img" class="emoji">💬</span></li>
+              <li>Ivete de Souza <span role="img" class="emoji">💬</span></li>
+              <span class="cards__card__info__speakers__listeners">
+                200 <i class="fa fa-user"></i> / 2
+                <i class="fa fa-comment"></i>
+              </span>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Start a room button -->
+  <div class="btn-absolute">
+    <button class="btn-start-room" onclick="toggleModal('create-room-modal', true)">
+      <i class="fa fa-plus"></i>
+      Start a room
+    </button>
+  </div>
+
+  <!-- Modal: Add a topic (optional) -->
+  <div id="topic-modal" class="topic-modal">
+    <div class="topic-modal__content">
+      <div class="topic-modal__content__form">
+        <h1>Adicione um tópico</h1>
+        <input type="text" name="topic" id="txtTopic">
+      </div>
+      
+      <div class="topic-modal__content__buttons">
+        <button onclick="toggleModal('topic-modal', false)">Cancelar</button>
+        <button id="btnCreateRoomWithTopic">Ok</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Create room -->
+  <div id="create-room-modal" class="create-room-modal">
+    <div class="create-room-modal__content">
+      <p class="create-room-modal__content__btn" onclick="toggleModal('topic-modal', open)">+ Add um tópico</p>
+      <div class="create-room-modal__content__rooms">
+        <div class="create-room-modal__content__rooms__option">
+          <img src="../../assets/icons/worldwide.svg" alt="Public">
+          <span>Aberto</span>
+        </div>
+        <div class="create-room-modal__content__rooms__option">
+          <img src="../../assets/icons/team.svg" alt="Public">
+          <span>Social</span>
+        </div>
+        <div class="create-room-modal__content__rooms__option">
+          <img src="../../assets/icons/lock.svg" alt="Public">
+          <span>Fechado</span>
+        </div>
+      </div>
+      <h1 class="create-room-modal__content__description">Inicie uma sala <span>aberta para todos</span></h1>
+      <button class="btn-start-room" id="btnCreateRoomWithoutTopic">
+        <span role=" img">🎉</span>
+        Vamos lá
+      </button>
+    </div>
+  </div>
+
+  <footer class="fixed-footer-primary-color"></footer>
+
+  <!-- Scripts -->
+  <script src="https://use.fontawesome.com/8604f653a5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js" integrity="sha512-eVL5Lb9al9FzgR63gDs1MxcDS2wFu3loYAgjIH0+Hg38tCS8Ag62dwKyH+wzDb+QauDpEZjXbMn11blw8cbTJQ==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.3.2/peerjs.min.js" integrity="sha512-4wTQ8feow93K3qVGVXUGLULDB9eAULiG+xdbaQH8tYZlXxYv9ij+evblXD0EOqmGWT8NBTd1vQGsURvrQzmKeg==" crossorigin="anonymous"></script>
+  
+  <!-- Toggle Modal -->
+  <script>
+    function toggleModal(modal, action) {
+      if (action) document.getElementById(modal).style.display = "flex"
+      else document.getElementById(modal).style.display = "none"
+    }
+
+    const modal = document.getElementById('create-room-modal')
+    
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none"
+      }
+    }
+
+  </script>
+</body>
+
+</html>
