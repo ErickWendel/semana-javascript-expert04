@@ -1,0 +1,16 @@
+{
+  "name": "@erickwendel/clubhouse-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  },
+  "keywords": [],
+  "author": "erickwendel",
+  "license": "ISC"
+}
