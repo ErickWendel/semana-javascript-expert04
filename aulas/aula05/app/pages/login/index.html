@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clubhouse - Semana JSExpert</title>
+  <link rel="shortcut icon" type="image/jpeg" href="./../../assets/favicon.jpeg" />
+  <link rel="stylesheet" href="./../../css/styles.css" />
+</head>
+
+<body>
+  <div class="login">
+    <h1 class="login__title">
+      <span role="img">🎉</span>
+      Welcome!
+    </h1>
+    <p>
+      We're working hard to get Clubhouse ready for everyone! While we wrap up the finishing touches, we're adding people gradually to make sure nothing breaks. :)
+    </p>
+    <p>
+      Anyone can join with an invite from an existing user -- or reserve your username and we'll text you if you have a friend on the app who can let you in. We are so grateful you're here and can't wait to have you join us! 
+      <span role="img">🙏</span>
+    </p>
+    <button class="login__gitbtn" id="btnLogin">
+      <img src="../../assets/icons/github.svg" alt="Github">
+      Login with GitHub
+    </button>
+     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    </div>
+    
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="./src/app.js" type="module"></script>
+</body>
+</html
